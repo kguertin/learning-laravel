@@ -13,32 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
  */
 
-// Route::get('/', function () {
-//     return view('home');
-// });
+Route::get('/', 'HomeController@home')->name('home');
 
-Route::view('/', 'home')->name('home');
+Route::get('/contact', 'HomeController@contact')->name('contact');
 
-// Route::get('/contact', function(){
-//     return view('contact');
-// });
-
-Route::view('/contact1', 'contact')->name('contact');
-
-Route::get('/blog-post/{id}/{welcome?}', function ($id, $welcome = 1) {
-
-    $pages = [
-        1 => [
-            'title' => "page 1",
-        ],
-        2 => [
-            "title" => "page 2",
-        ],
-    ];
-    $welcomes = [
-        1 => "<b>Hello from</b> ",
-        2 => "<b>Welcome to</b> ",
-    ];
-
-    return view('blog-post', ['data' => $pages[$id], 'welcome' => $welcomes[$welcome]]);
-})->name('blog-post');
+Route::get('/blog-post/{id}/{welcome?}', 'HomeController@blogPost')->name('blog-post');
