@@ -1,10 +1,11 @@
 @extends('layout')
 
 @section('content')
-    @foreach ($posts as $post)
+    @forelse ($posts as $post)
         <p>
-            <h3>{{ $post->title }}</h3>
+            <a href="{{ route('posts.show', ['post' => $post->id ]) }}"><h3>{{ $post->title }}</h3></a>
         </p>
-        
-    @endforeach
+    @empty 
+        <p>No blog posts yet</p>
+    @endforelse
 @endsection('content')
