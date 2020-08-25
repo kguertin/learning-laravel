@@ -40,6 +40,8 @@ class PostController extends Controller
         $blogPost->content = $request->input('content');
 
         $blogPost->save();
+
+        $request->session()->flash('status', 'Blog post was created!');
         
         return redirect()->route('posts.show', ['post' => $blogPost->id]);
     }
