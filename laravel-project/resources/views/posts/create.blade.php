@@ -11,6 +11,15 @@
             <label for="content">Content</label>
             <input type="text" name="content">
         </p>
+        @if ($errors->any())
+            <div>
+                <ul>
+                    @foreach ($errors->all() as $error)
+                       <li>{{ $error }}</li> 
+                    @endforeach
+                </ul>
+            </div>
+        @endif
         <button type="submit">Create</button>
     </form>
 @endsection('content')
