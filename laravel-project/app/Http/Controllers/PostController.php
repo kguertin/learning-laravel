@@ -33,7 +33,9 @@ class PostController extends Controller
         return view('posts.create');
     }
 
-    public function store(){
-        dd('Ok!');
+    public function store(Request $request){
+        $title = $request->input('title');
+        $content = $request->input('content');
+        dd($title, $content);
     }
 }
