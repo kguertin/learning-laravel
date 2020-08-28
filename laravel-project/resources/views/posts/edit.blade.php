@@ -6,6 +6,6 @@
         @method('PUT')
 
         @include('posts._form')
-        <button type="submit">Update</button>
+        <button type="submit" class="btn btn-block btn-primary">Update</button>
     </form>
 @endsection('content')
